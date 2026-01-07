@@ -1,43 +1,55 @@
 import { Core } from "../types";
 
 export const CORE_ORDER: Core[] = [
-  "Seer",
-  "Weaver",
-  "Alchemist",
-  "Guardian",
-  "Sovereign",
-  "Warrior",
-  "Architect",
-  "Nomad"
+  "CATA", "ARCH", "EXPL", "GUAR", "SEER", "WEAV", "ALCH", "SOVE"
 ];
 
 export const CORE_LABEL: Record<Core, string> = {
-  Seer: "The Seer",
-  Weaver: "The Weaver",
-  Alchemist: "The Alchemist",
-  Guardian: "The Guardian",
-  Sovereign: "The Sovereign",
-  Warrior: "The Warrior",
-  Architect: "The Architect",
-  Nomad: "The Nomad"
+  CATA: "Catalyst",
+  ARCH: "Architect",
+  EXPL: "Explorer",
+  GUAR: "Guardian",
+  SEER: "Seer",
+  WEAV: "Weaver",
+  ALCH: "Alchemist",
+  SOVE: "Sovereign"
 };
 
 export const CORE_BLURB: Record<Core, string> = {
-  Seer: "Placeholer blurb for Seer.",
-  Weaver: "Placeholer blurb for Weaver.",
-  Alchemist: "Placeholer blurb for Alchemist.",
-  Guardian: "Placeholer blurb for Guardian.",
-  Sovereign: "Placeholer blurb for Sovereign.",
-  Warrior: "Placeholer blurb for Warrior.",
-  Architect: "Placeholer blurb for Architect.",
-  Nomad: "Placeholer blurb for Nomad."
+  CATA: "Change • Disruption • Momentum",
+  ARCH: "Structure • Systems • Design",
+  EXPL: "Expansion • Discovery • Experimentation",
+  GUAR: "Protection • Continuity • Boundaries",
+  SEER: "Perception • Insight • Foresight",
+  WEAV: "Connection • Coherence • Relationship",
+  ALCH: "Transformation • Healing • Meaning",
+  SOVE: "Authority • Direction • Leadership"
 };
 
-export const SUBTYPES = CORE_ORDER.flatMap((a) =>
-  CORE_ORDER.filter((b) => b !== a).map((b) => ({
-    id: `${a}-${b}`,
-    dominant: a,
-    secondary: b,
-    label: `${CORE_LABEL[a]} / ${CORE_LABEL[b]}`,
-  }))
-);
+export const CORE_OPPOSITE: Record<Core, Core> = {
+  CATA: "ARCH",
+  ARCH: "CATA",
+  EXPL: "WEAV",
+  WEAV: "EXPL",
+  GUAR: "SEER",
+  SEER: "GUAR",
+  ALCH: "SOVE",
+  SOVE: "ALCH"
+};
+
+// Simplified SUBTYPES for the Library - we will use the ID to lookup in the DataPack
+export const SUBTYPES = [
+  { id: "ARCH-BUI", dominant: "ARCH", label: "System Builder" },
+  { id: "ARCH-VIS", dominant: "ARCH", label: "Visionary Planner" },
+  { id: "ARCH-REG", dominant: "ARCH", label: "Structural Regulator" },
+  { id: "ARCH-TRN", dominant: "ARCH", label: "Adaptive Designer" },
+  { id: "CATA-BUI", dominant: "CATA", label: "Disruptive Igniter" },
+  { id: "CATA-VIS", dominant: "CATA", label: "Chaos Prophet" },
+  { id: "CATA-REG", dominant: "CATA", label: "Boundary Breaker" },
+  { id: "CATA-TRN", dominant: "CATA", label: "Transmutation Spark" },
+  { id: "SEER-BUI", dominant: "SEER", label: "Pattern Oracle" },
+  { id: "SEER-VIS", dominant: "SEER", label: "Strategic Forecaster" },
+  { id: "SEER-REG", dominant: "SEER", label: "Threshold Watcher" },
+  { id: "SEER-TRN", dominant: "SEER", label: "Vision Alchemist" }
+  // ... rest of the 32 would be added here or dynamically loaded
+];

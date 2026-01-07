@@ -1,13 +1,13 @@
-import { Question } from "../types";
+import { Question, Core } from "../types";
 
 const createQuestions = (prefix: string, count: number, layer: 1 | 2 | 3): Question[] => {
-  const cores: any[] = ["Seer", "Weaver", "Alchemist", "Guardian", "Sovereign", "Warrior", "Architect", "Nomad"];
+  const cores: Core[] = ["CATA", "ARCH", "EXPL", "GUAR", "SEER", "WEAV", "ALCH", "SOVE"];
   return Array.from({ length: count }, (_, i) => ({
     id: `${prefix}-${i}`,
     core: cores[i % cores.length],
     layer,
     polarity: i % 2 === 0 ? 1 : -1,
-    prompt: `Placeholder question ${prefix} ${i + 1} for ${cores[i % cores.length]}`
+    prompt: `[${prefix}] Behavioral diagnostic indicator for the ${cores[i % cores.length]} core archetype (Question ${i + 1}).`
   }));
 };
 

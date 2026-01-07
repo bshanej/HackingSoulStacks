@@ -1,4 +1,4 @@
-export type Core = "Seer" | "Weaver" | "Alchemist" | "Guardian" | "Sovereign" | "Warrior" | "Architect" | "Nomad";
+export type Core = "CATA" | "ARCH" | "EXPL" | "GUAR" | "SEER" | "WEAV" | "ALCH" | "SOVE";
 
 export type Likert = 1 | 2 | 3 | 4 | 5;
 
