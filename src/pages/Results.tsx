@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Card, Button, Progress } from "../ui/atoms";
+import { Card, Button, BarChart } from "../ui/atoms";
 import { CORE_LABEL, CORE_ORDER } from "../core/data/archetypes";
 import { loadLatestSession, saveSession } from "../core/storage";
 import { subtypeFromCores } from "../core/subtype";
@@ -22,7 +22,13 @@ export default function Results() {
     );
   }
 
-  const maxScore = Math.max(...Object.values(session.scores));
+  const chartData = CORE_ORDER.map(c => ({
+    label: CORE_LABEL[c],
+    value: session.scores[c],
+    active: c === session.dominant || c === session.secondary
+  }));
+
+  const maxScore = Math.max(...Object.values(session.scores), 1);
 
   return (
     <div className="grid">
@@ -52,31 +58,7 @@ export default function Results() {
         <h3>Archetype Profile</h3>
         <p className="muted" style={{ fontSize: "0.85rem", marginBottom: "1.5rem" }}>Comparative scoring across all 8 cores</p>
         
-        <div style={{ display: "grid", gap: "1rem" }}>
-          {CORE_ORDER.map(c => {
-            const score = session.scores[c];
-            const pct = Math.max(5, (score / (maxScore || 1)) * 100);
-            const isDominant = c === session.dominant;
-            const isSecondary = c === session.secondary;
-
-            return (
-              <div key={c} style={{ display: "grid", gridTemplateColumns: "100px 1fr 40px", alignItems: "center", gap: "1rem" }}>
-                <div style={{ fontSize: "0.85rem", fontWeight: isDominant || isSecondary ? 700 : 400, color: isDominant ? "var(--accent)" : "inherit" }}>
-                  {CORE_LABEL[c]}
-                </div>
-                <div style={{ background: "var(--glass)", height: "10px", borderRadius: "5px", overflow: "hidden" }}>
-                  <div style={{ 
-                    background: isDominant ? "var(--accent)" : isSecondary ? "rgba(125, 95, 255, 0.6)" : "var(--border)", 
-                    height: "100%", 
-                    width: `${pct}%`,
-                    boxShadow: isDominant ? "0 0 10px var(--accent-glow)" : "none"
-                  }} />
-                </div>
-                <div style={{ textAlign: "right", fontSize: "0.85rem", opacity: 0.7 }}>{score}</div>
-              </div>
-            );
-          })}
-        </div>
+        <BarChart data={chartData} max={maxScore} />
       </Card>
 
       <Card>

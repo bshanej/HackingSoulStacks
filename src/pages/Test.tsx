@@ -48,7 +48,7 @@ export default function Test({ onDone }: { onDone: () => void }) {
     <div className="grid">
       <Card>
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", alignItems: "center" }}>
-          <h2>{mode === "FULL" ? "Full Assessment" : "Quick Scan"}</h2>
+          <h2 style={{ margin: 0 }}>{mode === "FULL" ? "Full Assessment" : "Quick Scan"}</h2>
           <div style={{ display: "flex", gap: "0.5rem" }}>
             <Button variant={mode === "FULL" ? "primary" : "ghost"} onClick={() => restart("FULL")}>Full</Button>
             <Button variant={mode === "QUICK" ? "primary" : "ghost"} onClick={() => restart("QUICK")}>Quick</Button>

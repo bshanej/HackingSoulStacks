@@ -22,6 +22,38 @@ function fmt(ts: number) {
   }
 }
 
+function Row({
+  s,
+  onOpen,
+  onDelete,
+}: {
+  s: Session;
+  onOpen: () => void;
+  onDelete: () => void;
+}) {
+  const d = s.dominant;
+  const sec = s.secondary;
+
+  return (
+    <Card style={{ padding: "1.25rem" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: "1.1rem" }}>
+            {CORE_LABEL[d]} / {CORE_LABEL[sec]}
+          </div>
+          <div className="muted" style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+            {fmt(s.createdAt)} • {s.mode} Mode • ID: {s.subtypeId}
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <Button onClick={onOpen}>View</Button>
+          <Button variant="danger" onClick={onDelete}>Delete</Button>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
 export default function Archive() {
   const [tick, setTick] = useState(0);
   const archive = useMemo(() => loadArchive(), [tick]);
@@ -59,27 +91,12 @@ export default function Archive() {
       {archive.length === 0 ? (
         <Card style={{ textAlign: "center", padding: "3rem" }}>
           <p className="muted">No archived sessions yet.</p>
-          <Button onClick={() => location.hash = "#test"} style={{ marginTop: "1rem" }}>Take Your First Test</Button>
+          <Button onClick={() => (location.hash = "#test")} style={{ marginTop: "1rem" }}>Take Your First Test</Button>
         </Card>
       ) : (
         <div style={{ display: "grid", gap: "0.75rem" }}>
           {archive.map((s) => (
-            <Card key={s.id} style={{ padding: "1.25rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: "1.1rem" }}>
-                    {CORE_LABEL[s.dominant]} / {CORE_LABEL[s.secondary]}
-                  </div>
-                  <div className="muted" style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-                    {fmt(s.createdAt)} • {s.mode} Mode • ID: {s.subtypeId}
-                  </div>
-                </div>
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-                  <Button onClick={() => openSession(s)}>View</Button>
-                  <Button variant="danger" onClick={() => delSession(s.id)}>Delete</Button>
-                </div>
-              </div>
-            </Card>
+            <Row key={s.id} s={s} onOpen={() => openSession(s)} onDelete={() => delSession(s.id)} />
           ))}
         </div>
       )}
