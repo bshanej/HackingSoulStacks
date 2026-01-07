@@ -1,7 +1,5 @@
-import { Core, Question, ScoreMap, Session } from "./data/types";
+import { Core, Question, ScoreMap, Session, Answer } from "./types";
 import { CORE_ORDER } from "./data/archetypes";
-
-type Answer = { qid: string; value: number };
 
 function emptyScores(): ScoreMap {
   return CORE_ORDER.reduce((acc, c) => {
@@ -14,38 +12,42 @@ export function scoreSession(args: {
   mode: Session["mode"];
   questions: Question[];
   answers: Answer[];
-  meta?: Session["meta"];
 }): Session {
-  const { mode, questions, answers, meta } = args;
-
-  const byId = new Map<string, Question>();
-  for (const qu of questions) byId.set(qu.id, qu);
-
+  const { mode, questions, answers } = args;
   const scores = emptyScores();
 
-  for (const a of answers) {
-    const qu = byId.get(a.qid);
-    if (!qu) continue;
-    const v = qu.polarity === 1 ? a.value : (6 - a.value) as any;
-    scores[qu.core] += Number(v);
-  }
+  const questionsById = new Map(questions.map(q => [q.id, q]));
 
-  // dominant + secondary
-  const sorted = [...CORE_ORDER].sort((x, y) => scores[y] - scores[x]);
+  answers.forEach(a => {
+    const q = questionsById.get(a.qid);
+    if (q) {
+      const val = q.polarity === 1 ? a.value : (6 - a.value);
+      scores[q.core] += val;
+    }
+  });
+
+  const sorted = [...CORE_ORDER].sort((a, b) => {
+    const scoreDiff = scores[b] - scores[a];
+    if (scoreDiff !== 0) return scoreDiff;
+    return CORE_ORDER.indexOf(a) - CORE_ORDER.indexOf(b);
+  });
+
   const dominant = sorted[0];
   const secondary = sorted[1];
-
-  const id = `sess_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+  
+  const topScore = scores[dominant];
+  const secondScore = scores[secondary];
+  const confidence = (topScore - secondScore) / Math.max(1, topScore);
 
   return {
-    id,
+    id: `sess_${Date.now()}`,
     createdAt: Date.now(),
     mode,
-    meta,
     answers,
     scores,
     dominant,
     secondary,
     subtypeId: `${dominant}-${secondary}`,
+    confidence
   };
 }

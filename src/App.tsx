@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Home from "../pages/Home";
-import Test from "../pages/Test";
-import Results from "../pages/Results";
-import Library from "../pages/Library";
-import Archive from "../pages/Archive";
+import Home from "./pages/Home";
+import Test from "./pages/Test";
+import Results from "./pages/Results";
+import Library from "./pages/Library";
+import Archive from "./pages/Archive";
 
 type Route = "home" | "test" | "results" | "library" | "archive";
 
@@ -37,7 +37,7 @@ export default function App() {
       case "archive": return <Archive />;
       default: return <Home onStart={() => nav("test")} />;
     }
-  }, [route]);
+  }, [route, nav]);
 
   return (
     <div className="container">
