@@ -1,53 +1,25 @@
 import React, { useMemo, useState } from "react";
 import { Card, Button } from "../ui/atoms";
-
 import { CORE_LABEL } from "../core/data/archetypes";
 import {
   clearArchive,
   loadArchive,
-  removeFromArchive,
+  deleteEntry,
   saveSession,
 } from "../core/storage";
 import { Session } from "../core/types";
 
 function fmt(ts: number) {
   try {
-    return new Date(ts).toLocaleString();
+    return new Date(ts).toLocaleDateString(undefined, { 
+      month: "short", 
+      day: "numeric", 
+      hour: "2-digit", 
+      minute: "2-digit" 
+    });
   } catch {
     return String(ts);
   }
-}
-
-function Row({
-  s,
-  onOpen,
-  onDelete,
-}: {
-  s: Session;
-  onOpen: () => void;
-  onDelete: () => void;
-}) {
-  const d = s.dominant;
-  const sec = s.secondary;
-
-  return (
-    <div className="card" style={{ padding: "1rem", marginBottom: "0.5rem" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div>
-          <div style={{ fontWeight: 700 }}>
-            {CORE_LABEL[d]} / {CORE_LABEL[sec]}
-          </div>
-          <div className="muted" style={{ fontSize: "0.8rem" }}>
-            {fmt(s.createdAt)} • {s.mode} • {s.subtypeId}
-          </div>
-        </div>
-        <div style={{ display: "flex", gap: "0.5rem" }}>
-          <Button onClick={onOpen}>Open</Button>
-          <Button variant="danger" onClick={onDelete}>Delete</Button>
-        </div>
-      </div>
-    </div>
-  );
 }
 
 export default function Archive() {
@@ -62,7 +34,7 @@ export default function Archive() {
   }
 
   function delSession(id: string) {
-    removeFromArchive(id);
+    deleteEntry(id);
     refresh();
   }
 
@@ -70,10 +42,13 @@ export default function Archive() {
     <div className="grid">
       <Card>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <h2>Archive</h2>
+          <div>
+            <h2>Session Archive</h2>
+            <p className="muted" style={{ fontSize: "0.85rem" }}>{archive.length} saved results</p>
+          </div>
           <Button 
             variant="danger" 
-            onClick={() => { clearArchive(); refresh(); }}
+            onClick={() => { if(confirm("Clear all results?")) { clearArchive(); refresh(); } }}
             disabled={archive.length === 0}
           >
             Clear All
@@ -82,11 +57,31 @@ export default function Archive() {
       </Card>
 
       {archive.length === 0 ? (
-        <Card><p className="muted">No archived sessions yet.</p></Card>
+        <Card style={{ textAlign: "center", padding: "3rem" }}>
+          <p className="muted">No archived sessions yet.</p>
+          <Button onClick={() => location.hash = "#test"} style={{ marginTop: "1rem" }}>Take Your First Test</Button>
+        </Card>
       ) : (
-        archive.map((s) => (
-          <Row key={s.id} s={s} onOpen={() => openSession(s)} onDelete={() => delSession(s.id)} />
-        ))
+        <div style={{ display: "grid", gap: "0.75rem" }}>
+          {archive.map((s) => (
+            <Card key={s.id} style={{ padding: "1.25rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: "1.1rem" }}>
+                    {CORE_LABEL[s.dominant]} / {CORE_LABEL[s.secondary]}
+                  </div>
+                  <div className="muted" style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+                    {fmt(s.createdAt)} • {s.mode} Mode • ID: {s.subtypeId}
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <Button onClick={() => openSession(s)}>View</Button>
+                  <Button variant="danger" onClick={() => delSession(s.id)}>Delete</Button>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
       )}
     </div>
   );
