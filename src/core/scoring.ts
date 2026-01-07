@@ -1,5 +1,7 @@
-import { Answer, Core, Question, ScoreMap, Session } from "./types";
+import { Core, Question, ScoreMap, Session } from "./data/types";
 import { CORE_ORDER } from "./data/archetypes";
+
+type Answer = { qid: string; value: number };
 
 function emptyScores(): ScoreMap {
   return CORE_ORDER.reduce((acc, c) => {

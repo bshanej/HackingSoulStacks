@@ -7,8 +7,8 @@ import {
   loadArchive,
   removeFromArchive,
   saveLatestSession,
-  type StoredSession,
-} from "../core/storage";
+  type AnySession as StoredSession,
+} from "../core/storage/storage";
 
 function fmt(ts: number) {
   try {

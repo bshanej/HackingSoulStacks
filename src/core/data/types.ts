@@ -7,7 +7,7 @@ export type SessionMeta = { displayName?: string; notes?: string };
 
 export type Question = {
   id: string;
-  layer: Layer;
+  layer: Layer | 1 | 2 | 3;
   core: Core;
   prompt: string;
   polarity: 1 | -1;
@@ -22,9 +22,10 @@ export type Session = {
   createdAt: number;
   mode: Mode;
   meta?: SessionMeta;
-  answers: Answer[];
+  answers: Answer[] | Record<string, Likert>;
   scores: ScoreMap;
   dominant: Core;
   secondary: Core;
   subtypeId: string; // `${dominant}-${secondary}`
+  result?: any;
 };

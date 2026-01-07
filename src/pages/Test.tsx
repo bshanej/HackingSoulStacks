@@ -2,10 +2,10 @@
 import React, { useMemo, useState } from "react";
 import { Card, Button, Kbd } from "../ui/atoms";
 
-import type { Likert, Question } from "../core/types";
+import type { Likert, Question } from "../core/data/types";
 import { FULL_L1, FULL_L2, FULL_L3, QUICK_SCAN } from "../core/data/questions";
 import { scoreSession } from "../core/scoring";
-import { saveLatestSession, addToArchive } from "../core/storage";
+import { saveLatestSession, addToArchive } from "../core/storage/storage";
 
 type Mode = "FULL" | "QUICK";
 
