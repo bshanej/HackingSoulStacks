@@ -32,3 +32,12 @@ export const CORE_BLURB: Record<Core, string> = {
   Architect: "Placeholer blurb for Architect.",
   Nomad: "Placeholer blurb for Nomad."
 };
+
+export const SUBTYPES = CORE_ORDER.flatMap((a) =>
+  CORE_ORDER.filter((b) => b !== a).map((b) => ({
+    id: `${a}-${b}`,
+    dominant: a,
+    secondary: b,
+    label: `${CORE_LABEL[a]} / ${CORE_LABEL[b]}`,
+  }))
+);

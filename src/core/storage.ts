@@ -34,6 +34,10 @@ export function clearArchive(): void {
   localStorage.setItem(KEY_ARCHIVE, JSON.stringify([]));
 }
 
+export function removeFromArchive(id: string): void {
+  deleteEntry(id);
+}
+
 export function loadLatestSession(): Session | null {
   const raw = localStorage.getItem(KEY_LATEST);
   if (!raw) return null;
