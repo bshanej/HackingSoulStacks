@@ -10,7 +10,7 @@ type Route = "home" | "test" | "results" | "library" | "archive";
 function useHashRoute(): [Route, (r: Route) => void] {
   const get = (): Route => {
     const h = (location.hash || "#home").replace("#", "");
-    if (h === "home" || h === "test" || h === "results" || h === "library" || h === "archive") return h;
+    if (["home", "test", "results", "library", "archive"].includes(h)) return h as Route;
     return "home";
   };
 
@@ -37,26 +37,28 @@ export default function App() {
       case "archive": return <Archive />;
       default: return <Home onStart={() => nav("test")} />;
     }
-  }, [route, nav]);
+  }, [route]);
 
   return (
-    <div className="container">
-      <div className="header">
+    <div className="app-container">
+      <header className="app-header">
         <div className="brand">
           <h1>SOULSTACK //</h1>
-          <p>3-layer diagnostic • 32 subtype signature • archive</p>
+          <p className="tagline">3-layer diagnostic • 32 subtype signature</p>
         </div>
 
-        <div className="nav">
-          <a className="pill" href="#home">Home</a>
-          <a className="pill" href="#test">Take Test</a>
-          <a className="pill" href="#results">Results</a>
-          <a className="pill" href="#library">Library</a>
-          <a className="pill" href="#archive">Archive</a>
-        </div>
-      </div>
+        <nav className="nav-pills">
+          <button className={`pill ${route === "home" ? "active" : ""}`} onClick={() => nav("home")}>Home</button>
+          <button className={`pill ${route === "test" ? "active" : ""}`} onClick={() => nav("test")}>Test</button>
+          <button className={`pill ${route === "results" ? "active" : ""}`} onClick={() => nav("results")}>Results</button>
+          <button className={`pill ${route === "library" ? "active" : ""}`} onClick={() => nav("library")}>Library</button>
+          <button className={`pill ${route === "archive" ? "active" : ""}`} onClick={() => nav("archive")}>Archive</button>
+        </nav>
+      </header>
 
-      {page}
+      <main className="content">
+        {page}
+      </main>
     </div>
   );
 }
