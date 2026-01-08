@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button } from "../ui/atoms";
-import { CORE_LABEL } from "../core/data/archetypes";
+import { dataStore, CoreData, SubtypeData } from "../core/dataStore";
 
 export default function Library() {
-  const [selectedSubtype, setSelectedSubtype] = useState(null);
-  const [cores, setCores] = useState([]);
-  const [subtypes, setSubtypes] = useState([]);
+  const [selectedSubtype, setSelectedSubtype] = useState<SubtypeData | null>(null);
+  const [cores, setCores] = useState<CoreData[]>([]);
+  const [subtypes, setSubtypes] = useState<SubtypeData[]>([]);
 
   useEffect(() => {
-    fetch("/api/core").then(res => res.json()).then(setCores);
-    fetch("/api/archetypes").then(res => res.json()).then(setSubtypes);
+    setCores(dataStore.getCores());
+    setSubtypes(dataStore.getSubtypes());
   }, []);
 
   return (
@@ -20,23 +20,23 @@ export default function Library() {
       </Card>
 
       {cores.map((c) => (
-        <Card key={c.id}>
+        <Card key={c.core_id}>
           <h3 style={{ color: "var(--accent)", fontSize: "1.4rem" }}>{c.name}</h3>
-          <p className="muted" style={{ margin: "0.2rem 0 1rem", fontSize: "0.85rem" }}>{c.axis}</p>
-          <p style={{ margin: "0.5rem 0 1.5rem" }}>{c.personality}</p>
+          <p className="muted" style={{ margin: "0.2rem 0 1rem", fontSize: "0.85rem" }}>{c.domain}</p>
+          <p style={{ margin: "0.5rem 0 1.5rem" }}>{c.domain} - Opposite: {c.opposite}</p>
           
           <div className="muted" style={{ fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "0.75rem" }}>
             Resonance Signatures
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-            {subtypes.filter(s => s.primary === c.id).map(s => (
+            {subtypes.filter(s => s.core_id === c.core_id).map(s => (
               <button 
-                key={s.id} 
-                className={`pill ${selectedSubtype?.id === s.id ? "active" : ""}`}
+                key={s.subtype_id} 
+                className={`pill ${selectedSubtype?.subtype_id === s.subtype_id ? "active" : ""}`}
                 onClick={() => setSelectedSubtype(s)}
                 style={{ fontSize: "0.8rem" }}
               >
-                {s.display_name}
+                {s.name}
               </button>
             ))}
           </div>
@@ -48,8 +48,8 @@ export default function Library() {
           <Card className="modal-content" onClick={e => e.stopPropagation()}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>
-                <h2 style={{ color: "var(--accent)" }}>{selectedSubtype.display_name}</h2>
-                <p className="muted">{selectedSubtype.summary}</p>
+                <h2 style={{ color: "var(--accent)" }}>{selectedSubtype.name}</h2>
+                <p className="muted">{selectedSubtype.tagline}</p>
               </div>
               <Button onClick={() => setSelectedSubtype(null)} variant="ghost">✕</Button>
             </div>
@@ -57,30 +57,28 @@ export default function Library() {
             <div style={{ marginTop: "1.5rem", display: "grid", gap: "1.25rem" }}>
               <section>
                 <h4 style={{ color: "var(--text-main)" }}>The Core Profile</h4>
-                <p className="muted" style={{ fontSize: "0.95rem" }}>{selectedSubtype.personality}</p>
+                <p className="muted" style={{ fontSize: "0.95rem" }}>{selectedSubtype.description}</p>
               </section>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                 <section>
                   <h4 style={{ color: "var(--accent)" }}>Light Strengths</h4>
-                  <p className="muted" style={{ fontSize: "0.85rem" }}>{selectedSubtype.strengths}</p>
+                  <ul className="muted" style={{ fontSize: "0.85rem", paddingLeft: "1rem" }}>
+                    {selectedSubtype.cards.mode_light.map((s, i) => <li key={i}>{s}</li>)}
+                  </ul>
                 </section>
                 <section>
                   <h4 style={{ color: "#ff4d6d" }}>Shadow Warnings</h4>
-                  <p className="muted" style={{ fontSize: "0.85rem" }}>{selectedSubtype.shadow_warning}</p>
+                  <ul className="muted" style={{ fontSize: "0.85rem", paddingLeft: "1rem" }}>
+                    {selectedSubtype.cards.mode_shadow.map((s, i) => <li key={i}>{s}</li>)}
+                  </ul>
                 </section>
               </div>
 
               <section>
                 <h4 style={{ color: "var(--text-main)" }}>Pathways</h4>
-                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Careers:</b> {selectedSubtype.career_paths}</p>
-                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Growth:</b> {selectedSubtype.growth_path}</p>
-              </section>
-
-              <section>
-                <h4 style={{ color: "var(--text-main)" }}>Notable Echoes</h4>
-                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Famous:</b> {selectedSubtype.famous_people}</p>
-                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Fictional:</b> {selectedSubtype.fictional_characters}</p>
+                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Integration:</b> {selectedSubtype.cards.integration_keys.join("; ")}</p>
+                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Best With:</b> {selectedSubtype.cards.relationships.best_with.join(", ")}</p>
               </section>
             </div>
           </Card>
