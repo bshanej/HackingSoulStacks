@@ -1,98 +1,151 @@
-import React, { useMemo, useState } from "react";
-import { Card, Button, Progress, Kbd } from "../ui/atoms";
-import { FULL_L1, FULL_L2, FULL_L3, QUICK_SCAN } from "../core/data/questions";
+import React, { useState, useEffect, useMemo } from "react";
+import { Card, Button, Progress } from "../ui/atoms";
+import assessmentData from "../core/data/assessment_v1.json";
 import { scoreSession } from "../core/scoring";
 import { saveSession } from "../core/storage";
-import { Likert, Answer } from "../core/types";
 
-type Mode = "FULL" | "QUICK";
+type AssessmentMode = "STANDARD" | "QUICK";
+
+interface Question {
+  id: string;
+  prompt: string;
+  layer: number;
+  weights: any;
+  polarity: number;
+}
 
 export default function Test({ onDone }: { onDone: () => void }) {
-  const [mode, setMode] = useState<Mode>("FULL");
+  const [mode, setMode] = useState<AssessmentMode | null>(null);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [isResuming, setIsResuming] = useState(false);
+
+  // Load persistence
+  useEffect(() => {
+    const saved = localStorage.getItem("soulstack.progress");
+    if (saved) {
+      const { mode: savedMode, currentIdx: savedIdx, answers: savedAnswers } = JSON.parse(saved);
+      setMode(savedMode);
+      setCurrentIdx(savedIdx);
+      setAnswers(savedAnswers);
+      setIsResuming(true);
+    }
+  }, []);
+
+  // Save persistence
+  useEffect(() => {
+    if (mode) {
+      localStorage.setItem("soulstack.progress", JSON.stringify({ mode, currentIdx, answers }));
+    }
+  }, [mode, currentIdx, answers]);
+
   const questions = useMemo(() => {
-    if (mode === "QUICK") return QUICK_SCAN;
-    return [...FULL_L1, ...FULL_L2, ...FULL_L3];
+    if (!mode) return [];
+    const allQuestions: Question[] = [];
+    
+    if (mode === "QUICK") {
+      assessmentData.quick_scan.forEach(id => {
+        for (const layerId in assessmentData.layers) {
+          const q = (assessmentData.layers as any)[layerId].questions.find((q: any) => q.id === id);
+          if (q) {
+            allQuestions.push({ ...q, layer: parseInt(layerId) });
+            break;
+          }
+        }
+      });
+    } else {
+      Object.entries(assessmentData.layers).forEach(([layerId, layer]: [string, any]) => {
+        layer.questions.forEach((q: any) => {
+          allQuestions.push({ ...q, layer: parseInt(layerId) });
+        });
+      });
+    }
+    return allQuestions;
   }, [mode]);
 
-  const [idx, setIdx] = useState(0);
-  const [answers, setAnswers] = useState<Answer[]>([]);
-  
-  const q = questions[idx];
-  const currentAnswer = answers.find(a => a.qid === q?.id);
+  const currentQuestion = questions[currentIdx];
 
-  const progressPct = Math.round(((idx) / questions.length) * 100);
-
-  const setAnswer = (val: Likert) => {
-    const newAnswers = [...answers.filter(a => a.qid !== q.id), { qid: q.id, value: val }];
+  const handleAnswer = (value: number) => {
+    const newAnswers = { ...answers, [currentQuestion.id]: value };
     setAnswers(newAnswers);
-    if (idx < questions.length - 1) {
-      setIdx(idx + 1);
+
+    if (currentIdx < questions.length - 1) {
+      setCurrentIdx(currentIdx + 1);
+    } else {
+      // Finalize
+      const mappedAnswers = Object.entries(newAnswers).map(([qid, value]) => ({ qid, value: value as any }));
+      const session = scoreSession({ 
+        mode: mode === "STANDARD" ? "FULL" : "QUICK", 
+        questions: questions as any, 
+        answers: mappedAnswers 
+      });
+      saveSession(session);
+      localStorage.removeItem("soulstack.progress");
+      onDone();
     }
   };
 
-  const finish = () => {
-    const session = scoreSession({ mode, questions, answers });
-    saveSession(session);
-    onDone();
-  };
+  if (!mode) {
+    return (
+      <Card style={{ textAlign: "center", padding: "2rem" }}>
+        <h2>Choose Your Path</h2>
+        <p className="muted" style={{ marginBottom: "2rem" }}>Select the depth of your assessment.</p>
+        <div style={{ display: "grid", gap: "1rem" }}>
+          <Button onClick={() => setMode("STANDARD")}>Standard Assessment (3 Layers)</Button>
+          <Button variant="ghost" onClick={() => setMode("QUICK")}>Quick Scan (12 Questions)</Button>
+        </div>
+      </Card>
+    );
+  }
 
-  const restart = (newMode: Mode) => {
-    setMode(newMode);
-    setIdx(0);
-    setAnswers([]);
-  };
-
-  if (!q) return <Card>Loading...</Card>;
+  const progress = Math.round((currentIdx / questions.length) * 100);
 
   return (
     <div className="grid">
       <Card>
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", alignItems: "center" }}>
-          <h2 style={{ margin: 0 }}>{mode === "FULL" ? "Full Assessment" : "Quick Scan"}</h2>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
-            <Button variant={mode === "FULL" ? "primary" : "ghost"} onClick={() => restart("FULL")}>Full</Button>
-            <Button variant={mode === "QUICK" ? "primary" : "ghost"} onClick={() => restart("QUICK")}>Quick</Button>
+          <div className="muted" style={{ fontSize: "0.85rem" }}>
+            Layer {currentQuestion.layer}: {assessmentData.layers[currentQuestion.layer as unknown as keyof typeof assessmentData.layers].name}
+          </div>
+          <div className="muted" style={{ fontSize: "0.85rem" }}>
+            {currentIdx + 1} / {questions.length}
           </div>
         </div>
+        <Progress value={progress} />
         
-        <div style={{ marginBottom: "1.5rem" }}>
-           <div className="muted" style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem", fontSize: "0.85rem" }}>
-             <span>Question {idx + 1} of {questions.length}</span>
-             <span>{progressPct}% Complete</span>
-           </div>
-           <Progress value={progressPct} />
+        <div style={{ marginTop: "3rem", textAlign: "center", minHeight: "150px" }}>
+          <h3 style={{ fontSize: "1.4rem", lineHeight: "1.4" }}>{currentQuestion.prompt}</h3>
         </div>
 
-        <div style={{ minHeight: "200px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <h3 style={{ fontSize: "1.25rem", textAlign: "center", marginBottom: "2rem" }}>{q.prompt}</h3>
-          
-          <div style={{ display: "grid", gap: "0.75rem" }}>
-            {[1, 2, 3, 4, 5].map((n) => (
-              <Button 
-                key={n} 
-                variant={currentAnswer?.value === n ? "primary" : "ghost"} 
-                onClick={() => setAnswer(n as Likert)}
-                style={{ justifyContent: "flex-start", paddingLeft: "1.5rem" }}
-              >
-                <Kbd>{n}</Kbd> 
-                <span style={{ marginLeft: "1rem" }}>
-                  {n === 1 ? "Strongly Disagree" : n === 2 ? "Disagree" : n === 3 ? "Neutral" : n === 4 ? "Agree" : "Strongly Agree"}
-                </span>
-              </Button>
-            ))}
-          </div>
+        <div style={{ display: "grid", gap: "0.75rem", marginTop: "2rem" }}>
+          {[
+            { label: "Strongly Agree", val: 5 },
+            { label: "Agree", val: 4 },
+            { label: "Neutral", val: 3 },
+            { label: "Disagree", val: 2 },
+            { label: "Strongly Disagree", val: 1 },
+          ].map((opt) => (
+            <Button 
+              key={opt.val} 
+              variant={answers[currentQuestion.id] === opt.val ? "primary" : "ghost"} 
+              onClick={() => handleAnswer(opt.val)}
+            >
+              {opt.label}
+            </Button>
+          ))}
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2rem", borderTop: "1px solid var(--border)", paddingTop: "1.5rem" }}>
-          <Button disabled={idx === 0} onClick={() => setIdx(idx - 1)} variant="ghost">← Previous</Button>
-          
-          <div style={{ display: "flex", gap: "1rem" }}>
-            {answers.length === questions.length ? (
-              <Button onClick={finish}>Finish & View Results</Button>
-            ) : (
-              <Button disabled={idx === questions.length - 1} onClick={() => setIdx(idx + 1)} variant="ghost">Next →</Button>
-            )}
-          </div>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2rem", paddingTop: "1rem", borderTop: "1px solid var(--border)" }}>
+          <Button 
+            variant="ghost" 
+            disabled={currentIdx === 0} 
+            onClick={() => setCurrentIdx(currentIdx - 1)}
+          >
+            ← Back
+          </Button>
+          <Button variant="ghost" onClick={() => {
+             if(confirm("Exit and save progress?")) location.hash = "#home";
+          }}>Save & Exit</Button>
         </div>
       </Card>
     </div>
