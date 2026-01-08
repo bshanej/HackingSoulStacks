@@ -21,6 +21,36 @@
           "prompt": "I prioritize the safety and continuity of the group over individual exploration.",
           "weights": { "cores": { "GUAR": 1.0, "WEAV": 0.5 }, "modes": { "REG": 0.4 } },
           "polarity": 1
+        },
+        {
+          "id": "l1_4",
+          "prompt": "I am naturally drawn to uncovering hidden truths and long-term implications that others overlook.",
+          "weights": { "cores": { "SEER": 1.0, "ALCH": 0.5 }, "modes": { "VIS": 0.3 } },
+          "polarity": 1
+        },
+        {
+          "id": "l1_5",
+          "prompt": "I thrive on building bridges between disparate ideas and people to create a unified whole.",
+          "weights": { "cores": { "WEAV": 1.0, "SOVE": 0.5 }, "modes": { "BUI": 0.2 } },
+          "polarity": 1
+        },
+        {
+          "id": "l1_6",
+          "prompt": "I see every challenge as an opportunity for profound personal or structural transformation.",
+          "weights": { "cores": { "ALCH": 1.0, "CATA": 0.5 }, "modes": { "TRN": 0.4 } },
+          "polarity": 1
+        },
+        {
+          "id": "l1_7",
+          "prompt": "I feel a strong internal drive to provide direction and decisive leadership in times of uncertainty.",
+          "weights": { "cores": { "SOVE": 1.0, "GUAR": 0.5 }, "modes": { "REG": 0.3 } },
+          "polarity": 1
+        },
+        {
+          "id": "l1_8",
+          "prompt": "I am most alive when I am experimenting with new methods and pushing past existing boundaries.",
+          "weights": { "cores": { "EXPL": 1.0, "CATA": 0.5 }, "modes": { "TRN": 0.2 } },
+          "polarity": 1
         }
       ]
     },
@@ -39,6 +69,18 @@
           "prompt": "I prefer to spend my time envisioning the future rather than managing the present.",
           "weights": { "modes": { "VIS": 1.0 }, "cores": { "SEER": 0.3 } },
           "polarity": 1
+        },
+        {
+          "id": "l2_3",
+          "prompt": "I value strict adherence to established standards as the primary way to maintain quality.",
+          "weights": { "modes": { "REG": 1.0 }, "cores": { "GUAR": 0.3 } },
+          "polarity": 1
+        },
+        {
+          "id": "l2_4",
+          "prompt": "I find that I am often the catalyst for shifting the entire state of a project through a single key change.",
+          "weights": { "modes": { "TRN": 1.0 }, "cores": { "ALCH": 0.3 } },
+          "polarity": 1
         }
       ]
     },
@@ -51,9 +93,15 @@
           "prompt": "Under extreme pressure, I tend to become overly rigid and controlling of small details.",
           "weights": { "stress": { "rigidity": 1.0 }, "shadow": { "ARCH": 0.5 } },
           "polarity": 1
+        },
+        {
+          "id": "l3_2",
+          "prompt": "When I feel overwhelmed, I often retreat into abstract theories and lose touch with practical reality.",
+          "weights": { "stress": { "dissociation": 1.0 }, "shadow": { "SEER": 0.5 } },
+          "polarity": 1
         }
       ]
     }
   },
-  "quick_scan": ["l1_1", "l1_2", "l1_3", "l2_1", "l2_2"]
+  "quick_scan": ["l1_1", "l1_2", "l1_3", "l1_4", "l1_5", "l1_6", "l1_7", "l1_8", "l2_1", "l2_2", "l2_3", "l2_4"]
 }
