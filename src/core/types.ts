@@ -1,4 +1,6 @@
-export type Core = "CATA" | "ARCH" | "EXPL" | "GUAR" | "SEER" | "WEAV" | "ALCH" | "SOVE";
+import { CoreID } from "./dataStore";
+
+export type Core = CoreID;
 
 export type Likert = 1 | 2 | 3 | 4 | 5;
 
