@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Card, Button, Progress } from "../ui/atoms";
-import assessmentData from "../core/data/assessment_v1.json";
+import assessmentDataRaw from "../core/data/assessment_v1.json";
 import { scoreSession } from "../core/scoring";
 import { saveSession } from "../core/storage";
+
+const assessmentData = assessmentDataRaw as any;
 
 type AssessmentMode = "STANDARD" | "QUICK";
 
@@ -24,11 +26,15 @@ export default function Test({ onDone }: { onDone: () => void }) {
   useEffect(() => {
     const saved = localStorage.getItem("soulstack.progress");
     if (saved) {
-      const { mode: savedMode, currentIdx: savedIdx, answers: savedAnswers } = JSON.parse(saved);
-      setMode(savedMode);
-      setCurrentIdx(savedIdx);
-      setAnswers(savedAnswers);
-      setIsResuming(true);
+      try {
+        const { mode: savedMode, currentIdx: savedIdx, answers: savedAnswers } = JSON.parse(saved);
+        setMode(savedMode);
+        setCurrentIdx(savedIdx);
+        setAnswers(savedAnswers);
+        setIsResuming(true);
+      } catch (e) {
+        localStorage.removeItem("soulstack.progress");
+      }
     }
   }, []);
 
@@ -44,7 +50,7 @@ export default function Test({ onDone }: { onDone: () => void }) {
     const allQuestions: Question[] = [];
     
     if (mode === "QUICK") {
-      assessmentData.quick_scan.forEach(id => {
+      assessmentData.quick_scan.forEach((id: string) => {
         for (const layerId in assessmentData.layers) {
           const q = (assessmentData.layers as any)[layerId].questions.find((q: any) => q.id === id);
           if (q) {
@@ -99,13 +105,14 @@ export default function Test({ onDone }: { onDone: () => void }) {
   }
 
   const progress = Math.round((currentIdx / questions.length) * 100);
+  const layerName = assessmentData.layers[currentQuestion.layer.toString()]?.name || "Assessment";
 
   return (
     <div className="grid">
       <Card>
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem", alignItems: "center" }}>
           <div className="muted" style={{ fontSize: "0.85rem" }}>
-            Layer {currentQuestion.layer}: {assessmentData.layers[currentQuestion.layer as unknown as keyof typeof assessmentData.layers].name}
+            Layer {currentQuestion.layer}: {layerName}
           </div>
           <div className="muted" style={{ fontSize: "0.85rem" }}>
             {currentIdx + 1} / {questions.length}
