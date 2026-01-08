@@ -1,0 +1,1725 @@
+{
+  "meta": {
+    "version": "32.2-yinyang-coreorder",
+    "generated_at": "2026-01-07"
+  },
+  "cores": [
+    {
+      "core_id": "CATA",
+      "name": "Catalyst",
+      "domain": "Change • Disruption • Momentum",
+      "opposite": "Architect",
+      "order": 1
+    },
+    {
+      "core_id": "ARCH",
+      "name": "Architect",
+      "domain": "Structure • Systems • Design",
+      "opposite": "Catalyst",
+      "order": 2
+    },
+    {
+      "core_id": "EXPL",
+      "name": "Explorer",
+      "domain": "Expansion • Discovery • Experimentation",
+      "opposite": "Weaver",
+      "order": 3
+    },
+    {
+      "core_id": "GUAR",
+      "name": "Guardian",
+      "domain": "Protection • Continuity • Boundaries",
+      "opposite": "Seer",
+      "order": 4
+    },
+    {
+      "core_id": "SEER",
+      "name": "Seer",
+      "domain": "Perception • Insight • Foresight",
+      "opposite": "Guardian",
+      "order": 5
+    },
+    {
+      "core_id": "WEAV",
+      "name": "Weaver",
+      "domain": "Connection • Coherence • Relationship",
+      "opposite": "Explorer",
+      "order": 6
+    },
+    {
+      "core_id": "ALCH",
+      "name": "Alchemist",
+      "domain": "Transformation • Healing • Meaning",
+      "opposite": "Sovereign",
+      "order": 7
+    },
+    {
+      "core_id": "SOVE",
+      "name": "Sovereign",
+      "domain": "Authority • Direction • Leadership",
+      "opposite": "Alchemist",
+      "order": 8
+    }
+  ],
+  "modes": [
+    {
+      "mode_id": "BUI",
+      "name": "Builder",
+      "tagline": "Makes it real",
+      "definition": "Turns intention into infrastructure and repeatable outcomes."
+    },
+    {
+      "mode_id": "VIS",
+      "name": "Visionary",
+      "tagline": "Sees the next shape",
+      "definition": "Orients the system toward meaning and future direction."
+    },
+    {
+      "mode_id": "REG",
+      "name": "Regulator",
+      "tagline": "Holds the line",
+      "definition": "Protects integrity and stability through boundaries and standards."
+    },
+    {
+      "mode_id": "TRN",
+      "name": "Transformer",
+      "tagline": "Changes the state",
+      "definition": "Reinvents form; turns pressure into growth through transmutation."
+    }
+  ],
+  "subtypes": [
+    {
+      "subtype_id": "ARCH-BUI",
+      "index": 1,
+      "core_id": "ARCH",
+      "core_name": "Architect",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "System Builder",
+      "title": "Architect — System Builder",
+      "tagline": "Makes it real",
+      "description": "Architect — System Builder is the Architect core expressed through the Builder execution mode. At its best, it builds durable frameworks that outlast moods and builds infrastructure. In shadow, it trends toward rigidity, control, confusing structure with truth plus the builder failure pattern of workaholic control. Integration: trade certainty for iteration; keep systems human; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "trade certainty for iteration; keep systems human",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Catalyst",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ARCH-VIS",
+      "index": 2,
+      "core_id": "ARCH",
+      "core_name": "Architect",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Visionary Planner",
+      "title": "Architect — Visionary Planner",
+      "tagline": "Sees the next shape",
+      "description": "Architect — Visionary Planner is the Architect core expressed through the Visionary execution mode. At its best, it builds durable frameworks that outlast moods and sees the next shape. In shadow, it trends toward rigidity, control, confusing structure with truth plus the visionary failure pattern of stays in the head. Integration: trade certainty for iteration; keep systems human; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "trade certainty for iteration; keep systems human",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Catalyst",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ARCH-REG",
+      "index": 3,
+      "core_id": "ARCH",
+      "core_name": "Architect",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Structural Regulator",
+      "title": "Architect — Structural Regulator",
+      "tagline": "Holds the line",
+      "description": "Architect — Structural Regulator is the Architect core expressed through the Regulator execution mode. At its best, it builds durable frameworks that outlast moods and holds boundaries. In shadow, it trends toward rigidity, control, confusing structure with truth plus the regulator failure pattern of rigidity/moralizing. Integration: trade certainty for iteration; keep systems human; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "trade certainty for iteration; keep systems human",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Catalyst",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ARCH-TRN",
+      "index": 4,
+      "core_id": "ARCH",
+      "core_name": "Architect",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Adaptive Designer",
+      "title": "Architect — Adaptive Designer",
+      "tagline": "Changes the state",
+      "description": "Architect — Adaptive Designer is the Architect core expressed through the Transformer execution mode. At its best, it builds durable frameworks that outlast moods and reinvents under pressure. In shadow, it trends toward rigidity, control, confusing structure with truth plus the transformer failure pattern of volatility. Integration: trade certainty for iteration; keep systems human; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "trade certainty for iteration; keep systems human",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Catalyst",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "CATA-BUI",
+      "index": 5,
+      "core_id": "CATA",
+      "core_name": "Catalyst",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Disruptive Igniter",
+      "title": "Catalyst — Disruptive Igniter",
+      "tagline": "Makes it real",
+      "description": "Catalyst — Disruptive Igniter is the Catalyst core expressed through the Builder execution mode. At its best, it forces evolution when stagnation becomes lethal and builds infrastructure. In shadow, it trends toward collateral damage, intensity addiction, scorched-earth escalation plus the builder failure pattern of workaholic control. Integration: aim the fire; use containers; recover on purpose; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "aim the fire; use containers; recover on purpose",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Architect",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "CATA-VIS",
+      "index": 6,
+      "core_id": "CATA",
+      "core_name": "Catalyst",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Chaos Prophet",
+      "title": "Catalyst — Chaos Prophet",
+      "tagline": "Sees the next shape",
+      "description": "Catalyst — Chaos Prophet is the Catalyst core expressed through the Visionary execution mode. At its best, it forces evolution when stagnation becomes lethal and sees the next shape. In shadow, it trends toward collateral damage, intensity addiction, scorched-earth escalation plus the visionary failure pattern of stays in the head. Integration: aim the fire; use containers; recover on purpose; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "aim the fire; use containers; recover on purpose",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Architect",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "CATA-REG",
+      "index": 7,
+      "core_id": "CATA",
+      "core_name": "Catalyst",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Boundary Breaker",
+      "title": "Catalyst — Boundary Breaker",
+      "tagline": "Holds the line",
+      "description": "Catalyst — Boundary Breaker is the Catalyst core expressed through the Regulator execution mode. At its best, it forces evolution when stagnation becomes lethal and holds boundaries. In shadow, it trends toward collateral damage, intensity addiction, scorched-earth escalation plus the regulator failure pattern of rigidity/moralizing. Integration: aim the fire; use containers; recover on purpose; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "aim the fire; use containers; recover on purpose",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Architect",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "CATA-TRN",
+      "index": 8,
+      "core_id": "CATA",
+      "core_name": "Catalyst",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Transmutation Spark",
+      "title": "Catalyst — Transmutation Spark",
+      "tagline": "Changes the state",
+      "description": "Catalyst — Transmutation Spark is the Catalyst core expressed through the Transformer execution mode. At its best, it forces evolution when stagnation becomes lethal and reinvents under pressure. In shadow, it trends toward collateral damage, intensity addiction, scorched-earth escalation plus the transformer failure pattern of volatility. Integration: aim the fire; use containers; recover on purpose; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "aim the fire; use containers; recover on purpose",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Architect",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SEER-BUI",
+      "index": 9,
+      "core_id": "SEER",
+      "core_name": "Seer",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Pattern Oracle",
+      "title": "Seer — Pattern Oracle",
+      "tagline": "Makes it real",
+      "description": "Seer — Pattern Oracle is the Seer core expressed through the Builder execution mode. At its best, it sees patterns early and reads what others miss and builds infrastructure. In shadow, it trends toward paranoia, dissociation, analysis paralysis plus the builder failure pattern of workaholic control. Integration: translate insight into action; ground the signal; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "translate insight into action; ground the signal",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Guardian",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SEER-VIS",
+      "index": 10,
+      "core_id": "SEER",
+      "core_name": "Seer",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Strategic Forecaster",
+      "title": "Seer — Strategic Forecaster",
+      "tagline": "Sees the next shape",
+      "description": "Seer — Strategic Forecaster is the Seer core expressed through the Visionary execution mode. At its best, it sees patterns early and reads what others miss and sees the next shape. In shadow, it trends toward paranoia, dissociation, analysis paralysis plus the visionary failure pattern of stays in the head. Integration: translate insight into action; ground the signal; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "translate insight into action; ground the signal",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Guardian",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SEER-REG",
+      "index": 11,
+      "core_id": "SEER",
+      "core_name": "Seer",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Threshold Watcher",
+      "title": "Seer — Threshold Watcher",
+      "tagline": "Holds the line",
+      "description": "Seer — Threshold Watcher is the Seer core expressed through the Regulator execution mode. At its best, it sees patterns early and reads what others miss and holds boundaries. In shadow, it trends toward paranoia, dissociation, analysis paralysis plus the regulator failure pattern of rigidity/moralizing. Integration: translate insight into action; ground the signal; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "translate insight into action; ground the signal",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Guardian",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SEER-TRN",
+      "index": 12,
+      "core_id": "SEER",
+      "core_name": "Seer",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Vision Alchemist",
+      "title": "Seer — Vision Alchemist",
+      "tagline": "Changes the state",
+      "description": "Seer — Vision Alchemist is the Seer core expressed through the Transformer execution mode. At its best, it sees patterns early and reads what others miss and reinvents under pressure. In shadow, it trends toward paranoia, dissociation, analysis paralysis plus the transformer failure pattern of volatility. Integration: translate insight into action; ground the signal; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "translate insight into action; ground the signal",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Guardian",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "GUAR-BUI",
+      "index": 13,
+      "core_id": "GUAR",
+      "core_name": "Guardian",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Shield Bearer",
+      "title": "Guardian — Shield Bearer",
+      "tagline": "Makes it real",
+      "description": "Guardian — Shield Bearer is the Guardian core expressed through the Builder execution mode. At its best, it creates safety so growth can happen and builds infrastructure. In shadow, it trends toward over-protection, stagnation, fear-based control plus the builder failure pattern of workaholic control. Integration: upgrade boundaries from fear to strategy; allow chosen risk; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "upgrade boundaries from fear to strategy; allow chosen risk",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Seer",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "GUAR-VIS",
+      "index": 14,
+      "core_id": "GUAR",
+      "core_name": "Guardian",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Moral Sentinel",
+      "title": "Guardian — Moral Sentinel",
+      "tagline": "Sees the next shape",
+      "description": "Guardian — Moral Sentinel is the Guardian core expressed through the Visionary execution mode. At its best, it creates safety so growth can happen and sees the next shape. In shadow, it trends toward over-protection, stagnation, fear-based control plus the visionary failure pattern of stays in the head. Integration: upgrade boundaries from fear to strategy; allow chosen risk; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "upgrade boundaries from fear to strategy; allow chosen risk",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Seer",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "GUAR-REG",
+      "index": 15,
+      "core_id": "GUAR",
+      "core_name": "Guardian",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Boundary Warden",
+      "title": "Guardian — Boundary Warden",
+      "tagline": "Holds the line",
+      "description": "Guardian — Boundary Warden is the Guardian core expressed through the Regulator execution mode. At its best, it creates safety so growth can happen and holds boundaries. In shadow, it trends toward over-protection, stagnation, fear-based control plus the regulator failure pattern of rigidity/moralizing. Integration: upgrade boundaries from fear to strategy; allow chosen risk; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "upgrade boundaries from fear to strategy; allow chosen risk",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Seer",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "GUAR-TRN",
+      "index": 16,
+      "core_id": "GUAR",
+      "core_name": "Guardian",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Healing Protector",
+      "title": "Guardian — Healing Protector",
+      "tagline": "Changes the state",
+      "description": "Guardian — Healing Protector is the Guardian core expressed through the Transformer execution mode. At its best, it creates safety so growth can happen and reinvents under pressure. In shadow, it trends toward over-protection, stagnation, fear-based control plus the transformer failure pattern of volatility. Integration: upgrade boundaries from fear to strategy; allow chosen risk; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "upgrade boundaries from fear to strategy; allow chosen risk",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Seer",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SOVE-BUI",
+      "index": 17,
+      "core_id": "SOVE",
+      "core_name": "Sovereign",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Empire Builder",
+      "title": "Sovereign — Empire Builder",
+      "tagline": "Makes it real",
+      "description": "Sovereign — Empire Builder is the Sovereign core expressed through the Builder execution mode. At its best, it creates coherence through decision and responsibility and builds infrastructure. In shadow, it trends toward ego rule, tyranny, blind certainty plus the builder failure pattern of workaholic control. Integration: lead with inner law + feedback loops; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "lead with inner law + feedback loops",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Alchemist",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SOVE-VIS",
+      "index": 18,
+      "core_id": "SOVE",
+      "core_name": "Sovereign",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Visionary Leader",
+      "title": "Sovereign — Visionary Leader",
+      "tagline": "Sees the next shape",
+      "description": "Sovereign — Visionary Leader is the Sovereign core expressed through the Visionary execution mode. At its best, it creates coherence through decision and responsibility and sees the next shape. In shadow, it trends toward ego rule, tyranny, blind certainty plus the visionary failure pattern of stays in the head. Integration: lead with inner law + feedback loops; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "lead with inner law + feedback loops",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Alchemist",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SOVE-REG",
+      "index": 19,
+      "core_id": "SOVE",
+      "core_name": "Sovereign",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Lawful Regulator",
+      "title": "Sovereign — Lawful Regulator",
+      "tagline": "Holds the line",
+      "description": "Sovereign — Lawful Regulator is the Sovereign core expressed through the Regulator execution mode. At its best, it creates coherence through decision and responsibility and holds boundaries. In shadow, it trends toward ego rule, tyranny, blind certainty plus the regulator failure pattern of rigidity/moralizing. Integration: lead with inner law + feedback loops; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "lead with inner law + feedback loops",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Alchemist",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "SOVE-TRN",
+      "index": 20,
+      "core_id": "SOVE",
+      "core_name": "Sovereign",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Transformational Ruler",
+      "title": "Sovereign — Transformational Ruler",
+      "tagline": "Changes the state",
+      "description": "Sovereign — Transformational Ruler is the Sovereign core expressed through the Transformer execution mode. At its best, it creates coherence through decision and responsibility and reinvents under pressure. In shadow, it trends toward ego rule, tyranny, blind certainty plus the transformer failure pattern of volatility. Integration: lead with inner law + feedback loops; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "lead with inner law + feedback loops",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Alchemist",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ALCH-BUI",
+      "index": 21,
+      "core_id": "ALCH",
+      "core_name": "Alchemist",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Soul Smith",
+      "title": "Alchemist — Soul Smith",
+      "tagline": "Makes it real",
+      "description": "Alchemist — Soul Smith is the Alchemist core expressed through the Builder execution mode. At its best, it turns pain into medicine and chaos into meaning and builds infrastructure. In shadow, it trends toward martyr loops, crisis addiction, emotional corrosion plus the builder failure pattern of workaholic control. Integration: stabilize before transmuting; protect your nervous system; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "stabilize before transmuting; protect your nervous system",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Sovereign",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ALCH-VIS",
+      "index": 22,
+      "core_id": "ALCH",
+      "core_name": "Alchemist",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Shadow Sage",
+      "title": "Alchemist — Shadow Sage",
+      "tagline": "Sees the next shape",
+      "description": "Alchemist — Shadow Sage is the Alchemist core expressed through the Visionary execution mode. At its best, it turns pain into medicine and chaos into meaning and sees the next shape. In shadow, it trends toward martyr loops, crisis addiction, emotional corrosion plus the visionary failure pattern of stays in the head. Integration: stabilize before transmuting; protect your nervous system; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "stabilize before transmuting; protect your nervous system",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Sovereign",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ALCH-REG",
+      "index": 23,
+      "core_id": "ALCH",
+      "core_name": "Alchemist",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Stabilizing Healer",
+      "title": "Alchemist — Stabilizing Healer",
+      "tagline": "Holds the line",
+      "description": "Alchemist — Stabilizing Healer is the Alchemist core expressed through the Regulator execution mode. At its best, it turns pain into medicine and chaos into meaning and holds boundaries. In shadow, it trends toward martyr loops, crisis addiction, emotional corrosion plus the regulator failure pattern of rigidity/moralizing. Integration: stabilize before transmuting; protect your nervous system; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "stabilize before transmuting; protect your nervous system",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Sovereign",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "ALCH-TRN",
+      "index": 24,
+      "core_id": "ALCH",
+      "core_name": "Alchemist",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Phoenix Catalyst",
+      "title": "Alchemist — Phoenix Catalyst",
+      "tagline": "Changes the state",
+      "description": "Alchemist — Phoenix Catalyst is the Alchemist core expressed through the Transformer execution mode. At its best, it turns pain into medicine and chaos into meaning and reinvents under pressure. In shadow, it trends toward martyr loops, crisis addiction, emotional corrosion plus the transformer failure pattern of volatility. Integration: stabilize before transmuting; protect your nervous system; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "stabilize before transmuting; protect your nervous system",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Sovereign",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "EXPL-BUI",
+      "index": 25,
+      "core_id": "EXPL",
+      "core_name": "Explorer",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Pathfinder",
+      "title": "Explorer — Pathfinder",
+      "tagline": "Makes it real",
+      "description": "Explorer — Pathfinder is the Explorer core expressed through the Builder execution mode. At its best, it opens new territory and prevents stagnation and builds infrastructure. In shadow, it trends toward restlessness, escapism, unfinished arcs plus the builder failure pattern of workaholic control. Integration: anchor novelty into commitments; integrate discoveries; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "anchor novelty into commitments; integrate discoveries",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Weaver",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "EXPL-VIS",
+      "index": 26,
+      "core_id": "EXPL",
+      "core_name": "Explorer",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Concept Pioneer",
+      "title": "Explorer — Concept Pioneer",
+      "tagline": "Sees the next shape",
+      "description": "Explorer — Concept Pioneer is the Explorer core expressed through the Visionary execution mode. At its best, it opens new territory and prevents stagnation and sees the next shape. In shadow, it trends toward restlessness, escapism, unfinished arcs plus the visionary failure pattern of stays in the head. Integration: anchor novelty into commitments; integrate discoveries; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "anchor novelty into commitments; integrate discoveries",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Weaver",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "EXPL-REG",
+      "index": 27,
+      "core_id": "EXPL",
+      "core_name": "Explorer",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Boundary Scout",
+      "title": "Explorer — Boundary Scout",
+      "tagline": "Holds the line",
+      "description": "Explorer — Boundary Scout is the Explorer core expressed through the Regulator execution mode. At its best, it opens new territory and prevents stagnation and holds boundaries. In shadow, it trends toward restlessness, escapism, unfinished arcs plus the regulator failure pattern of rigidity/moralizing. Integration: anchor novelty into commitments; integrate discoveries; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "anchor novelty into commitments; integrate discoveries",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Weaver",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "EXPL-TRN",
+      "index": 28,
+      "core_id": "EXPL",
+      "core_name": "Explorer",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Evolutionary Experimenter",
+      "title": "Explorer — Evolutionary Experimenter",
+      "tagline": "Changes the state",
+      "description": "Explorer — Evolutionary Experimenter is the Explorer core expressed through the Transformer execution mode. At its best, it opens new territory and prevents stagnation and reinvents under pressure. In shadow, it trends toward restlessness, escapism, unfinished arcs plus the transformer failure pattern of volatility. Integration: anchor novelty into commitments; integrate discoveries; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "anchor novelty into commitments; integrate discoveries",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Weaver",
+            "Weaver"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "WEAV-BUI",
+      "index": 29,
+      "core_id": "WEAV",
+      "core_name": "Weaver",
+      "mode_id": "BUI",
+      "mode_name": "Builder",
+      "name": "Network Architect",
+      "title": "Weaver — Network Architect",
+      "tagline": "Makes it real",
+      "description": "Weaver — Network Architect is the Weaver core expressed through the Builder execution mode. At its best, it binds people and ideas into working networks and builds infrastructure. In shadow, it trends toward enmeshment, people-pleasing, identity diffusion plus the builder failure pattern of workaholic control. Integration: tell the truth cleanly; boundaries make connection real; add vision checkpoints so you don't build the wrong cathedral.",
+      "cards": {
+        "mode_light": [
+          "builds infrastructure",
+          "finishes what matters",
+          "creates repeatable outcomes"
+        ],
+        "mode_shadow": [
+          "workaholic control",
+          "dismisses emotions as noise",
+          "over-optimizes"
+        ],
+        "integration_keys": [
+          "tell the truth cleanly; boundaries make connection real",
+          "add vision checkpoints so you don't build the wrong cathedral"
+        ],
+        "relationships": {
+          "best_with": [
+            "Explorer",
+            "Guardian"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "WEAV-VIS",
+      "index": 30,
+      "core_id": "WEAV",
+      "core_name": "Weaver",
+      "mode_id": "VIS",
+      "mode_name": "Visionary",
+      "name": "Cultural Visionary",
+      "title": "Weaver — Cultural Visionary",
+      "tagline": "Sees the next shape",
+      "description": "Weaver — Cultural Visionary is the Weaver core expressed through the Visionary execution mode. At its best, it binds people and ideas into working networks and sees the next shape. In shadow, it trends toward enmeshment, people-pleasing, identity diffusion plus the visionary failure pattern of stays in the head. Integration: tell the truth cleanly; boundaries make connection real; ship in small iterations; let feedback refine the prophecy.",
+      "cards": {
+        "mode_light": [
+          "sees the next shape",
+          "names the direction",
+          "anticipates second-order effects"
+        ],
+        "mode_shadow": [
+          "stays in the head",
+          "gets cynical",
+          "delays action"
+        ],
+        "integration_keys": [
+          "tell the truth cleanly; boundaries make connection real",
+          "ship in small iterations; let feedback refine the prophecy"
+        ],
+        "relationships": {
+          "best_with": [
+            "Explorer",
+            "Guardian"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "WEAV-REG",
+      "index": 31,
+      "core_id": "WEAV",
+      "core_name": "Weaver",
+      "mode_id": "REG",
+      "mode_name": "Regulator",
+      "name": "Social Regulator",
+      "title": "Weaver — Social Regulator",
+      "tagline": "Holds the line",
+      "description": "Weaver — Social Regulator is the Weaver core expressed through the Regulator execution mode. At its best, it binds people and ideas into working networks and holds boundaries. In shadow, it trends toward enmeshment, people-pleasing, identity diffusion plus the regulator failure pattern of rigidity/moralizing. Integration: tell the truth cleanly; boundaries make connection real; pair boundaries with purpose; allow transformation on your terms.",
+      "cards": {
+        "mode_light": [
+          "holds boundaries",
+          "stabilizes quality",
+          "prevents preventable chaos"
+        ],
+        "mode_shadow": [
+          "rigidity/moralizing",
+          "suppresses needed change",
+          "trust collapse"
+        ],
+        "integration_keys": [
+          "tell the truth cleanly; boundaries make connection real",
+          "pair boundaries with purpose; allow transformation on your terms"
+        ],
+        "relationships": {
+          "best_with": [
+            "Explorer",
+            "Guardian"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    },
+    {
+      "subtype_id": "WEAV-TRN",
+      "index": 32,
+      "core_id": "WEAV",
+      "core_name": "Weaver",
+      "mode_id": "TRN",
+      "mode_name": "Transformer",
+      "name": "Meaning Alchemist",
+      "title": "Weaver — Meaning Alchemist",
+      "tagline": "Changes the state",
+      "description": "Weaver — Meaning Alchemist is the Weaver core expressed through the Transformer execution mode. At its best, it binds people and ideas into working networks and reinvents under pressure. In shadow, it trends toward enmeshment, people-pleasing, identity diffusion plus the transformer failure pattern of volatility. Integration: tell the truth cleanly; boundaries make connection real; build containers for intensity; transform without detonating your life.",
+      "cards": {
+        "mode_light": [
+          "reinvents under pressure",
+          "transmutes crisis into progress",
+          "creates breakthroughs"
+        ],
+        "mode_shadow": [
+          "volatility",
+          "burn-it-all reflex",
+          "unstable routines"
+        ],
+        "integration_keys": [
+          "tell the truth cleanly; boundaries make connection real",
+          "build containers for intensity; transform without detonating your life"
+        ],
+        "relationships": {
+          "best_with": [
+            "Explorer",
+            "Guardian"
+          ],
+          "watch_out_for": [
+            "Unintegrated versions of your polarity opposite",
+            "People who demand you shrink to keep their comfort",
+            "Environments that reward chaos with attention"
+          ]
+        },
+        "images": {
+          "library_image": "(placeholder)",
+          "result_card_image": "(placeholder)"
+        },
+        "stack_overlay_notes": [
+          "Light Stack = ranks 1,2,5,6 (white). Shadow Stack = ranks 3,4,7,8 (black).",
+          "Dots = lesser pair inside each stack."
+        ]
+      }
+    }
+  ],
+  "stack_logic": {
+    "model_name": "Light/Shadow Stack (Yin–Yang Split)",
+    "rules": {
+      "light_stack_ranks": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "shadow_stack_ranks": [
+        3,
+        4,
+        7,
+        8
+      ],
+      "dominant_pair": "top two positions within each stack",
+      "lesser_pair": "bottom two positions within each stack (yin–yang dots)"
+    },
+    "positions": {
+      "LD1": "rank1",
+      "LD2": "rank2",
+      "LL1": "rank5",
+      "LL2": "rank6",
+      "SD1": "rank3",
+      "SD2": "rank4",
+      "SL1": "rank7",
+      "SL2": "rank8"
+    },
+    "canonical_core_order": [
+      "Catalyst",
+      "Architect",
+      "Explorer",
+      "Guardian",
+      "Seer",
+      "Weaver",
+      "Alchemist",
+      "Sovereign"
+    ],
+    "example": {
+      "core_rankings": [
+        "Catalyst",
+        "Architect",
+        "Seer",
+        "Guardian",
+        "Weaver",
+        "Explorer",
+        "Alchemist",
+        "Sovereign"
+      ],
+      "derived": {
+        "light_stack": {
+          "dominant": [
+            "Catalyst",
+            "Architect"
+          ],
+          "lesser": [
+            "Weaver",
+            "Explorer"
+          ]
+        },
+        "shadow_stack": {
+          "dominant": [
+            "Seer",
+            "Guardian"
+          ],
+          "lesser": [
+            "Alchemist",
+            "Sovereign"
+          ]
+        }
+      }
+    }
+  },
+  "app_schema": {
+    "canonical_core_order": [
+      "CATA",
+      "ARCH",
+      "EXPL",
+      "GUAR",
+      "SEER",
+      "WEAV",
+      "ALCH",
+      "SOVE"
+    ],
+    "required_inputs": [
+      {
+        "name": "core_rankings",
+        "type": "array<string>",
+        "length": 8,
+        "note": "Ranked core NAMES from highest(1) to lowest(8). Must use canonical names."
+      },
+      {
+        "name": "mode_scores",
+        "type": "object",
+        "fields": [
+          "BUI",
+          "VIS",
+          "REG",
+          "TRN"
+        ]
+      }
+    ],
+    "derived_outputs": [
+      {
+        "name": "light_stack",
+        "definition": "[rank1,rank2,rank5,rank6] -> dominant + lesser"
+      },
+      {
+        "name": "shadow_stack",
+        "definition": "[rank3,rank4,rank7,rank8] -> dominant + lesser"
+      },
+      {
+        "name": "primary_core",
+        "definition": "rank1"
+      },
+      {
+        "name": "support_core",
+        "definition": "rank2"
+      },
+      {
+        "name": "dominant_mode",
+        "definition": "max(mode_scores)"
+      },
+      {
+        "name": "subtype_id",
+        "definition": "<primary_core_id>-<dominant_mode_id> (map primary_core name to core_id)"
+      }
+    ]
+  }
+}

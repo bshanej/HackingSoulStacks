@@ -1,79 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Button } from "../ui/atoms";
-import { dataStore, CoreID } from "../core/dataStore";
-import { subtypeFromCores } from "../core/subtype";
+import { CORE_LABEL } from "../core/data/archetypes";
 
 export default function Library() {
-  const [selectedSubtypeId, setSelectedSubtypeId] = useState<string | null>(null);
+  const [selectedSubtype, setSelectedSubtype] = useState(null);
+  const [cores, setCores] = useState([]);
+  const [subtypes, setSubtypes] = useState([]);
 
-  const lore = selectedSubtypeId ? dataStore.getSubtypeById(selectedSubtypeId) : null;
+  useEffect(() => {
+    fetch("/api/core").then(res => res.json()).then(setCores);
+    fetch("/api/archetypes").then(res => res.json()).then(setSubtypes);
+  }, []);
 
   return (
     <div className="grid">
       <Card>
         <h2>The Grand Library</h2>
-        <p className="muted">Explore the 8 core archetypes and the 32 unique subtype signatures.</p>
+        <p className="muted">Explore the 8 core archetypes and their 32 unique resonance signatures.</p>
       </Card>
 
-      {dataStore.getCores().map((c) => (
-        <Card key={c.core_id}>
+      {cores.map((c) => (
+        <Card key={c.id}>
           <h3 style={{ color: "var(--accent)", fontSize: "1.4rem" }}>{c.name}</h3>
-          <p style={{ margin: "0.5rem 0 1.5rem" }}>{c.domain}</p>
+          <p className="muted" style={{ margin: "0.2rem 0 1rem", fontSize: "0.85rem" }}>{c.axis}</p>
+          <p style={{ margin: "0.5rem 0 1.5rem" }}>{c.personality}</p>
           
           <div className="muted" style={{ fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "0.75rem" }}>
-            Execution Modes
+            Resonance Signatures
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-            {dataStore.getSubtypesByCore(c.core_id).map(s => (
+            {subtypes.filter(s => s.primary === c.id).map(s => (
               <button 
-                key={s.subtype_id} 
-                className={`pill ${selectedSubtypeId === s.subtype_id ? "active" : ""}`}
-                onClick={() => setSelectedSubtypeId(s.subtype_id)}
+                key={s.id} 
+                className={`pill ${selectedSubtype?.id === s.id ? "active" : ""}`}
+                onClick={() => setSelectedSubtype(s)}
                 style={{ fontSize: "0.8rem" }}
               >
-                {s.name}
+                {s.display_name}
               </button>
             ))}
           </div>
         </Card>
       ))}
 
-      {selectedSubtypeId && lore && (
-        <div className="modal-overlay" onClick={() => setSelectedSubtypeId(null)}>
+      {selectedSubtype && (
+        <div className="modal-overlay" onClick={() => setSelectedSubtype(null)}>
           <Card className="modal-content" onClick={e => e.stopPropagation()}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>
-                <h2 style={{ color: "var(--accent)" }}>{lore.name}</h2>
-                <p className="muted">{lore.subtype_id}</p>
+                <h2 style={{ color: "var(--accent)" }}>{selectedSubtype.display_name}</h2>
+                <p className="muted">{selectedSubtype.summary}</p>
               </div>
-              <Button onClick={() => setSelectedSubtypeId(null)} variant="ghost">✕</Button>
+              <Button onClick={() => setSelectedSubtype(null)} variant="ghost">✕</Button>
             </div>
 
             <div style={{ marginTop: "1.5rem", display: "grid", gap: "1.25rem" }}>
               <section>
-                <h4 style={{ color: "var(--text-main)" }}>The Essence</h4>
-                <p className="muted" style={{ fontSize: "0.95rem" }}>{lore.description}</p>
+                <h4 style={{ color: "var(--text-main)" }}>The Core Profile</h4>
+                <p className="muted" style={{ fontSize: "0.95rem" }}>{selectedSubtype.personality}</p>
               </section>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                 <section>
-                  <h4 style={{ color: "var(--accent)" }}>Light Stack (Strengths)</h4>
-                  <ul className="muted" style={{ fontSize: "0.9rem", paddingLeft: "1.2rem" }}>
-                    {lore.cards.mode_light.map(s => <li key={s}>{s}</li>)}
-                  </ul>
+                  <h4 style={{ color: "var(--accent)" }}>Light Strengths</h4>
+                  <p className="muted" style={{ fontSize: "0.85rem" }}>{selectedSubtype.strengths}</p>
                 </section>
                 <section>
-                  <h4 style={{ color: "#ff4d6d" }}>Shadow Stack (Weaknesses)</h4>
-                  <ul className="muted" style={{ fontSize: "0.9rem", paddingLeft: "1.2rem" }}>
-                    {lore.cards.mode_shadow.map(w => <li key={w}>{w}</li>)}
-                  </ul>
+                  <h4 style={{ color: "#ff4d6d" }}>Shadow Warnings</h4>
+                  <p className="muted" style={{ fontSize: "0.85rem" }}>{selectedSubtype.shadow_warning}</p>
                 </section>
               </div>
 
               <section>
-                <h4 style={{ color: "var(--text-main)" }}>Integration & Relationships</h4>
-                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Path:</b> {lore.cards.integration_keys.join("; ")}</p>
-                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Best With:</b> {lore.cards.relationships.best_with.join(", ")}</p>
+                <h4 style={{ color: "var(--text-main)" }}>Pathways</h4>
+                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Careers:</b> {selectedSubtype.career_paths}</p>
+                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Growth:</b> {selectedSubtype.growth_path}</p>
+              </section>
+
+              <section>
+                <h4 style={{ color: "var(--text-main)" }}>Notable Echoes</h4>
+                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Famous:</b> {selectedSubtype.famous_people}</p>
+                <p className="muted" style={{ fontSize: "0.9rem" }}><b>Fictional:</b> {selectedSubtype.fictional_characters}</p>
               </section>
             </div>
           </Card>
