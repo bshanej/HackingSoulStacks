@@ -1,4 +1,5 @@
 import { dataStore, CoreID, ModeID, SubtypeData } from "./dataStore";
+import { CORE_LABEL } from "./data/archetypes";
 
 export interface ResultProfile {
   primary_core: CoreID;
@@ -57,7 +58,13 @@ export function resolveResult(
   const subtype_id = `${primary_core}-${dominant_mode_id}`;
   const subtype_card = dataStore.getSubtypeById(subtype_id);
 
-  // 5. Index Calculation
+  // 5. Primary/Secondary Sub-Archetype Lookup
+  // Lookup based on primary_core and support_core from the 56 Sub-Archetype rules
+  const primary_label = CORE_LABEL[primary_core];
+  const secondary_label = CORE_LABEL[support_core];
+  const sub_archetype = dataStore.getSubArchetype(primary_label, secondary_label);
+
+  // 6. Index Calculation
   const light_sum = light_stack.reduce((sum, core) => sum + core_scores[core], 0);
   const shadow_sum = shadow_stack.reduce((sum, core) => sum + core_scores[core], 0);
   const light_vs_shadow_index = light_sum - shadow_sum;
