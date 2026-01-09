@@ -1,0 +1,57 @@
+Primary,Secondary,Sub_Archetype,Theme,Function
+Architect,Weaver,Master Builder,Systems & Community,Builds enduring structures
+Architect,Sovereign,Cold Strategist,Authority & Order,Plans and controls systems
+Architect,Seer,Silent Architect,Visionary Systems,Designs unseen blueprints
+Architect,Guardian,Rigid Architect,Preservation,Protects structure at all costs
+Architect,Alchemist,Structural Transformer,Adaptive Design,Transforms systems safely
+Architect,Explorer,Innovating Planner,Exploration,Builds in unknown terrain
+Architect,Catalyst,Disruptive Designer,Creative Chaos,Breaks then rebuilds systems
+Catalyst,Seer,Chaos Prophet,Revolutionary Vision,Foresees collapse and rebirth
+Catalyst,Explorer,Firestarter,Ignition,Initiates movement
+Catalyst,Sovereign,Reckless Liberator,Power Rebellion,Overthrows authority
+Catalyst,Guardian,Anarchic Protector,Violent Defense,Protects through disruption
+Catalyst,Alchemist,Burned Catalyst,Self-Destruction,Transforms through burnout
+Catalyst,Weaver,Revolutionary Connector,Collective Change,Mobilizes people
+Catalyst,Architect,Strategic Instigator,Planned Chaos,Engineers disruption
+Seer,Architect,Oracle Engineer,Vision Systems,Builds future frameworks
+Seer,Weaver,Visionary Connector,Social Insight,Reads collective patterns
+Seer,Sovereign,Detached Prophet,Strategic Vision,Leads through foresight
+Seer,Guardian,Threshold Watcher,Sacred Timing,Guards knowledge
+Seer,Alchemist,Transformative Sage,Inner Alchemy,Turns insight into healing
+Seer,Explorer,Pathfinder,Discovery,Charts new realities
+Seer,Catalyst,Paranoid Seer,Overvision,Sees threats everywhere
+Guardian,Weaver,Shield Bearer,Community Safety,Protects the collective
+Guardian,Sovereign,Moral Enforcer,Law & Order,Maintains authority
+Guardian,Seer,Watcher at the Gate,Boundary Vision,Controls access
+Guardian,Architect,Frozen Guardian,Static Order,Prevents change
+Guardian,Alchemist,Healing Protector,Restorative Safety,Heals within structure
+Guardian,Explorer,Boundary Scout,Safe Discovery,Explores cautiously
+Guardian,Catalyst,Anarchic Protector,Militant Defense,Fights for values
+Sovereign,Guardian,Just King,Balanced Rule,Leads with protection
+Sovereign,Weaver,Charismatic Ruler,Social Power,Leads through influence
+Sovereign,Seer,Strategist King,Foresight Rule,Plans empires
+Sovereign,Architect,Empire Builder,Legacy,Creates institutions
+Sovereign,Alchemist,Transformative King,Evolution,Leads through change
+Sovereign,Explorer,Nomad King,Mobile Authority,Rules while wandering
+Sovereign,Catalyst,Tyrant in Waiting,Shadow Power,Rules by force
+Alchemist,Weaver,Wounded Healer,Empathic Alchemy,Heals through pain
+Alchemist,Seer,Dark Transmuter,Shadow Alchemy,Turns darkness into power
+Alchemist,Architect,Soul Smith,Structured Healing,Reforges identity
+Alchemist,Guardian,Healing Protector,Stabilizing Alchemy,Protects growth
+Alchemist,Sovereign,Transformative King,Leadership Alchemy,Rules through change
+Alchemist,Explorer,Experimental Sage,Curious Alchemy,Learns by doing
+Alchemist,Catalyst,Eternal Seeker,Restless Change,Never settles
+Explorer,Seer,Pathfinder,Discovery,Maps the unknown
+Explorer,Architect,Rogue Innovator,Unconventional Systems,Builds outside norms
+Explorer,Catalyst,Nomadic Catalyst,Moving Chaos,Triggers change by presence
+Explorer,Guardian,Boundary Scout,Safe Exploration,Tests limits
+Explorer,Alchemist,Experimental Sage,Transformative Travel,Learns through experience
+Explorer,Sovereign,Nomad King,Wandering Authority,Leads without roots
+Explorer,Weaver,Cultural Nomad,Cultural Bridge,Connects worlds
+Weaver,Architect,Network Designer,Systemic Connection,Builds relational systems
+Weaver,Sovereign,Social Sovereign,Relational Authority,Leads through harmony
+Weaver,Seer,Cultural Visionary,Collective Insight,Sees societal patterns
+Weaver,Guardian,Self-Erased Weaver,Over-Accommodation,Loses self for peace
+Weaver,Alchemist,Cultural Alchemist,Group Healing,Transforms communities
+Weaver,Explorer,Nomadic Connector,Global Connection,Bridges cultures
+Weaver,Catalyst,Instigating Connector,Social Disruption,Sparks change through people
