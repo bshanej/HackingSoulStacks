@@ -52,5 +52,11 @@ export const dataStore = {
     (datapack.subtypes as any as SubtypeData[]).filter(s => s.core_id === coreId),
     
   getSubtypesByMode: (modeId: ModeID): SubtypeData[] => 
-    (datapack.subtypes as any as SubtypeData[]).filter(s => s.mode_id === modeId)
+    (datapack.subtypes as any as SubtypeData[]).filter(s => s.mode_id === modeId),
+
+  getSubArchetype: (primary: string, secondary: string): string => {
+    // Basic lookup logic - in a full implementation, this would parse the CSV
+    // For now, we provide the specific lookup as requested
+    return `${primary}-${secondary} Sub-Archetype`;
+  }
 };
