@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 3000",
+    "dev-server": "npm run dev -- --host 0.0.0.0 --port 5000 & node src/server.js",
+    "dev": "vite --host 0.0.0.0 --port 5000",
     "build": "tsc -b && vite build",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
