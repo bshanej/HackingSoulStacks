@@ -33,21 +33,22 @@ export function resolveResult(
   const primary_core = core_rankings[0];
   const support_core = core_rankings[1];
 
-  // 3. Stack Rules
+  // 3. Stack Rules (Ensure we have at least 8 cores to avoid index errors)
+  const safe_rank = (idx: number) => core_rankings[idx] || core_rankings[0];
+
   // Light stack (white) = core ranks 1, 2, 5, 6
-  // Shadow stack (black) = core ranks 3, 4, 7, 8
   const light_stack = [
-    core_rankings[0],
-    core_rankings[1],
-    core_rankings[4],
-    core_rankings[5],
+    safe_rank(0),
+    safe_rank(1),
+    safe_rank(4),
+    safe_rank(5),
   ];
 
   const shadow_stack = [
-    core_rankings[2],
-    core_rankings[3],
-    core_rankings[6],
-    core_rankings[7],
+    safe_rank(2),
+    safe_rank(3),
+    safe_rank(6),
+    safe_rank(7),
   ];
 
   // Logic: "The engine that turns test scores into identities"

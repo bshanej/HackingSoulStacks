@@ -26,10 +26,14 @@ app.get("/api/archetypes", async (_, res) => {
 });
 
 app.get("/api/archetypes/:id", async (req, res) => {
-  const data = await loadCSV("data/archetypes_32.csv");
-  const found = data.find(a => a.id === req.params.id);
-  if (found) res.json(found);
-  else res.status(404).json({ error: "Not found" });
+  try {
+    const data = await loadCSV("data/archetypes_32.csv");
+    const found = data.find(a => a.id === req.params.id);
+    if (found) res.json(found);
+    else res.status(404).json({ error: "Archetype not found" });
+  } catch (err) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 const PORT = 3001;

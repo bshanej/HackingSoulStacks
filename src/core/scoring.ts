@@ -22,7 +22,9 @@ export function scoreSession(args: {
   answers.forEach(ans => {
     const q = questions.find(q => q.id === ans.qid);
     if (q && q.weights) {
-      const multiplier = q.polarity === 1 ? (ans.value - 3) : (3 - ans.value);
+      // Ensure ans.value is within valid Likert range 1-5
+      const cleanValue = Math.max(1, Math.min(5, ans.value));
+      const multiplier = q.polarity === 1 ? (cleanValue - 3) : (3 - cleanValue);
       
       // Core weights
       if (q.weights.cores) {
