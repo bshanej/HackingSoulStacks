@@ -49,6 +49,10 @@ export function resolveResult(
     core_rankings[7],
   ];
 
+  // Logic: "The engine that turns test scores into identities"
+  // If the user's top score is below a certain threshold, we might flag it as "Low Resolution"
+  // but for now we follow the ranking rule.
+
   // 4. Subtype Mapping
   const subtype_id = `${primary_core}-${dominant_mode_id}`;
   const subtype_card = dataStore.getSubtypeById(subtype_id);
