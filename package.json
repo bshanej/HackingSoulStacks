@@ -6,6 +6,7 @@
   "scripts": {
     "dev-server": "npm run dev -- --host 0.0.0.0 --port 5000 & node src/server.js",
     "dev": "vite --host 0.0.0.0 --port 5000",
+    "start": "node src/server.js",
     "build": "tsc -b && vite build",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },

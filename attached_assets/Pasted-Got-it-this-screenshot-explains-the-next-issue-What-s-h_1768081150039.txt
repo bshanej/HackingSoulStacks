@@ -1,0 +1,116 @@
+Got it — this screenshot explains the next issue:
+
+What’s happening
+
+You successfully built a frontend (those dist/assets/index-*.js and .css files look like a Vite/React build).
+
+But when you run:
+
+npm start
+
+NPM says:
+
+> Missing script: "start"
+
+
+
+That means your package.json does not have a "start" script, and also (most likely) you don’t actually have a backend server to “start” — you only have static files in dist/.
+
+So right now, there is nothing to run with tsx index.ts, because this isn’t a Node server project — it’s a static site build.
+
+
+---
+
+Fix options (choose the right one)
+
+✅ Option 1 (Most likely): You’re deploying a static site
+
+If this is a Vite app, you should publish it as a Static Site (not a Web Service).
+
+Build command
+
+npm install && npm run build
+
+Run command ➡️ Leave blank (static sites don’t run a process)
+
+Then point the host to:
+
+Publish directory: dist
+
+
+This is the correct setup for “Vite → dist”.
+
+
+---
+
+✅ Option 2: You want a Node server (Express/Fastify/etc.)
+
+Then you need an actual server entry file (like src/server.ts) and a start script.
+
+Example package.json scripts:
+
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node server.js"
+  }
+}
+
+…but you’d also need to create server.js (or server.ts) and have it listen on process.env.PORT.
+
+
+---
+
+✅ Option 3: Quick “static preview” run command (not recommended for real prod)
+
+If your host forces a run command and you just want it to serve the dist folder:
+
+Add to package.json
+
+"scripts": {
+  "start": "vite preview --host 0.0.0.0 --port $PORT"
+}
+
+Then in hosting:
+
+Build: npm install && npm run build
+
+Run: npm start
+
+
+This works on many hosts, but a true static-site deploy is cleaner.
+
+
+---
+
+What to change on your “Publishing” screen
+
+Right now you have:
+
+Run command: tsx index.ts ❌ (no backend file)
+
+Build command: empty ❌
+
+
+If it’s a Vite static app, change to:
+
+Build command
+
+npm install && npm run build
+
+Run command ✅ blank (or use the vite preview method above if blank isn’t allowed)
+
+
+---
+
+Fast confirmation check (no guessing)
+
+Open your package.json and look at "scripts".
+
+If you see "dev": "vite" and "build": "vite build" → it’s a static Vite app.
+
+If you see "start": "node ..." or "start": "tsx ..." → it’s meant to be a server.
+
+
+If you paste your package.json scripts section here, I’ll tell you exactly which option fits and what to paste into Build/Run on that host.

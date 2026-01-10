@@ -59,3 +59,12 @@ src/
 - None currently configured
 - No backend API, database, or third-party integrations
 - All data stored client-side in LocalStorage
+
+## Deployment
+
+To deploy this application on Replit:
+1. **Build Command**: `npm install && npm run build`
+2. **Run Command**: `npm start`
+3. **Primary Port**: 5000 (for the frontend preview)
+
+Note: This is a hybrid app with a Vite frontend and a simple Node.js server for potential future API expansion. For static-only deployment, use `dist` as the publish directory.
