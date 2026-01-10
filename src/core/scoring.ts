@@ -57,7 +57,8 @@ export function scoreSession(args: {
     dominant: profile.primary_core,
     secondary: profile.support_core,
     subtypeId: profile.subtype_id,
-    confidence: Math.abs(profile.charts.light_vs_shadow_index) / 10 // Adjusted scale
+    confidence: Math.abs(profile.charts.light_vs_shadow_index) / 10,
+    mode_scores: mode_scores
   };
 
   return session;

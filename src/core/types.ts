@@ -25,6 +25,7 @@ export interface Session {
   mode: "FULL" | "QUICK";
   answers: Answer[];
   scores: ScoreMap;
+  mode_scores?: Record<string, number>;
   dominant: Core;
   secondary: Core;
   subtypeId: string;

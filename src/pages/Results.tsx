@@ -16,14 +16,14 @@ export default function Results() {
       CATA: 0, ARCH: 0, EXPL: 0, GUAR: 0, SEER: 0, WEAV: 0, ALCH: 0, SOVE: 0
     };
 
-    const mode_scores = {
+    const mode_scores = session.mode_scores || {
       BUI: (core_scores.ARCH + core_scores.SOVE) / 2,
       VIS: (core_scores.SEER + core_scores.EXPL) / 2,
       REG: (core_scores.GUAR + core_scores.WEAV) / 2,
       TRN: (core_scores.ALCH + core_scores.CATA) / 2,
     };
 
-    return resolveResult(core_scores, mode_scores);
+    return resolveResult(core_scores, mode_scores as any);
   }, [session]);
 
   if (!session || !profile) {
