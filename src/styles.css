@@ -137,6 +137,16 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
 .grid {
   display: grid;
   gap: 1.5rem;

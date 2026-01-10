@@ -29,14 +29,18 @@ export function scoreSession(args: {
       // Core weights
       if (q.weights.cores) {
         Object.entries(q.weights.cores).forEach(([core, weight]) => {
-          core_scores[core as CoreID] += (weight as number) * multiplier;
+          if (core in core_scores) {
+            core_scores[core as CoreID] += (weight as number) * multiplier;
+          }
         });
       }
 
       // Mode weights
       if (q.weights.modes) {
         Object.entries(q.weights.modes).forEach(([mode, weight]) => {
-          mode_scores[mode as ModeID] += (weight as number) * multiplier;
+          if (mode in mode_scores) {
+            mode_scores[mode as ModeID] += (weight as number) * multiplier;
+          }
         });
       }
     }

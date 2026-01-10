@@ -10,12 +10,20 @@ export default function Results() {
 
   const profile = useMemo(() => {
     if (!session) return null;
-    return resolveResult(session.scores, {
-      BUI: (session.scores.ARCH + session.scores.SOVE) / 2,
-      VIS: (session.scores.SEER + session.scores.EXPL) / 2,
-      REG: (session.scores.GUAR + session.scores.WEAV) / 2,
-      TRN: (session.scores.ALCH + session.scores.CATA) / 2,
-    });
+    
+    // Use session scores if available, or fallback to zeroed map
+    const core_scores = session.scores || {
+      CATA: 0, ARCH: 0, EXPL: 0, GUAR: 0, SEER: 0, WEAV: 0, ALCH: 0, SOVE: 0
+    };
+
+    const mode_scores = {
+      BUI: (core_scores.ARCH + core_scores.SOVE) / 2,
+      VIS: (core_scores.SEER + core_scores.EXPL) / 2,
+      REG: (core_scores.GUAR + core_scores.WEAV) / 2,
+      TRN: (core_scores.ALCH + core_scores.CATA) / 2,
+    };
+
+    return resolveResult(core_scores, mode_scores);
   }, [session]);
 
   if (!session || !profile) {

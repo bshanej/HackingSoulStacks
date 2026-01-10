@@ -104,8 +104,17 @@ export default function Test({ onDone }: { onDone: () => void }) {
     );
   }
 
-  const progress = Math.round((currentIdx / questions.length) * 100);
-  const layerName = assessmentData.layers[currentQuestion.layer.toString()]?.name || "Assessment";
+  const progress = questions.length > 0 ? Math.round((currentIdx / questions.length) * 100) : 0;
+  const layerName = currentQuestion ? (assessmentData.layers[currentQuestion.layer.toString()]?.name || "Assessment") : "Assessment";
+
+  if (!currentQuestion && mode) {
+    return (
+      <Card style={{ textAlign: "center" }}>
+        <h2>Loading Questions...</h2>
+        <Button onClick={() => setMode(null)}>Reset</Button>
+      </Card>
+    );
+  }
 
   return (
     <div className="grid">
